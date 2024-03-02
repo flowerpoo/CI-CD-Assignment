@@ -49,3 +49,8 @@ Requirements:
 -----------------------------------------------------------------------------------------------------------------------------------
 **Solution:**
 
+1. Created a simple python flask application app.py and the test file test.py, tested both files in local after working fine upload in the github repository.
+2. After uploaded go to Action tab in github and created main.yml file that contains the github action workflow.
+3. Created Amazon Ec2 instance used that instance as a production environment to post our application.
+4. Launch Ec2 instance with Ubuntu OS, key pair, security group which allows port 5000 for python application to run.
+5. 
