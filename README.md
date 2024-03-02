@@ -53,4 +53,9 @@ Requirements:
 2. After uploaded go to Action tab in github and created main.yml file that contains the github action workflow.
 3. Created Amazon Ec2 instance used that instance as a production environment to post our application.
 4. Launch Ec2 instance with Ubuntu OS, key pair, security group which allows port 5000 for python application to run.
-5. 
+5. In github secrets stored instance pubilc ip, ssh key, user name for connecting github with instance.
+6. Update main.yml file contains the flow which test the python code after the success deploy that application in Ec2 instance and also EC2 instance connection established in that yaml file.
+7. That yaml file will trigger if it gets new commits.
+8. once that done check your application with following url http://instance_public_ip:5000
+
+Happy learning!!!!
