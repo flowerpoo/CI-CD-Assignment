@@ -27,7 +27,7 @@ jobs:
 
   deploy:
       runs-on: ubuntu-latest
-      if: ${{ needs.Testing.result == 'success' }}
+      if: ${{ success() }}
       steps:
         - name: Checkout current branch 
           uses: actions/checkout@v2
