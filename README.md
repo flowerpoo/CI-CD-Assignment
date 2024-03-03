@@ -50,7 +50,7 @@ Requirements:
    - Include screenshots of the Jenkins pipeline showing the build, test, and deployment stages.
   
   -----------------------------------------------------------------------------------------------------------------
- ** Solution:**
+  Solution: --go to jenkins folder to view solution---
 
 1. Created a simple python flask application app.py and the test file test.py, tested both files in local after working fine upload in the github repository.
 
