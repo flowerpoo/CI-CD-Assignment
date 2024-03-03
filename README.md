@@ -51,3 +51,27 @@ Requirements:
   
   -----------------------------------------------------------------------------------------------------------------
  ** Solution:**
+
+1. Created a simple python flask application app.py and the test file test.py, tested both files in local after working fine upload in the github repository.
+
+2. Created Amazon Ec2 instance used that instance as a production environment to post our application.
+
+3. Launch Ec2 instance with Ubuntu OS, key pair, security group which allows port 5000 for python application to run.
+
+4. Install Jenkins in your amazon Ec2 instance. Reference: https://medium.com/@ahmad.almezaal/implementing-ci-cd-pipeline-with-jenkins-and-aws-ec2-part-1-setting-up-jenkins-119fa9a9e935
+
+5. Once Jenkins got installed created new pipeline for flask application.
+
+6. Jenkinsfile is mentioned in the folder.
+
+7. Go to manage jenkins set up the system configurations like Ec2 Host Ip, Email Configurations (Reference link:https://www.youtube.com/watch?v=c9_0qPROPF8), etc what you need.
+
+8. Go to plugins installed ssh to establish connection between ec2 instance.
+
+9. Go to credencials part and add your SSh key, if needed add your AES Access key.
+
+10. Run the jenkins pipeline if it fails will send the notification via, email.
+
+11. To test your flask application go to http://your_instance_public_ip:5000
+
+Happy Learning!!!
