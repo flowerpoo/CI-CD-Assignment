@@ -68,7 +68,7 @@ Requirements:
 
 8. Go to plugins installed ssh to establish connection between ec2 instance.
 
-9. Go to credencials part and add your SSh key, if needed add your AES Access key.
+9. Go to credentials part and add your SSh key, if needed add your AWS Access key.
 
 10. Run the jenkins pipeline if it fails will send the notification via, email.
 
