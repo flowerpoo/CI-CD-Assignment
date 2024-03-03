@@ -1,7 +1,8 @@
 pipeline {
     agent any
     environment {
-        EC2_INSTANCE = '52.91.39.36'
+       
+        EC2_INSTANCE = '18.212.224.79'
     }
 
     stages {
@@ -29,32 +30,52 @@ pipeline {
         stage('Test') {
             steps {
                 
-                sh 'python3 test.py'
+                sh 'python3 test1.py'
                 
             }
         }
         
-                stage('Deploy to EC2') {
+        stage('Deploy to EC2') {
             steps {
                 script {
                    // Define the SSH key file path
                     def sshKeyPath = '/home/ubuntu/.ssh'
                     
-                    def ec2IpAddress = 'your-ec2-instance-ip'
+                    def ec2IpAddress = '18.212.224.79'
                     def sshCommand = "ssh -i ${sshKeyPath} ec2-user@${ec2IpAddress}"
-                    sh '''
-                    
+                    sh """
+                    rm -rf CI-CD-Assignment
                     git clone https://github.com/flowerpoo/CI-CD-Assignment.git
                     cd CI-CD-Assignment
-                    python3 app.py
-                    '''
+
+                    # Start Python application in background
+                    nohup python3 app.py &
+
+                    """
                     
                   
 
                 }
             }
         }
+        
+       
 
        
+    }
+    
+    post {  
+         always {  
+             echo 'This will always run'  
+         }  
+         success {  
+             echo 'This will run only if successful'  
+         }  
+         failure {  
+             mail bcc: '', body: "<b>Example</b><br>Project: ${env.JOB_NAME} <br>Build Number: ${env.BUILD_NUMBER} <br> URL de build: ${env.BUILD_URL}", cc: '', charset: 'UTF-8', from: '', mimeType: 'text/html', replyTo: '', subject: "ERROR CI: Project name -> ${env.JOB_NAME}", to: "poovarasancgm@gmail.com";  
+         }  
+         unstable {  
+             echo 'This will run only if the run was marked as unstable'  
+         }   
     }
 }
